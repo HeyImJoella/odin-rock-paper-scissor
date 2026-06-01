@@ -1,6 +1,7 @@
 const rockBtn = document.getElementById('rock');
 const paperBtn = document.getElementById('paper');
 const scissorsBtn = document.getElementById('scissors');
+const showResults = document.getElementById('results');
 
 rockBtn.addEventListener("click", () => (playRound("rock")));
 paperBtn.addEventListener("click", () => (playRound("paper")));
@@ -18,24 +19,21 @@ function playRound(playerChoice){
     if (playerChoice === computerChoice){
         return "It's a tie!";
     }else if (playerChoice === "rock" && computerChoice === "paper"){
-        return "Computer wins! Paper wraps rock."
+        return showResults.innerText = "Computer wins! Paper wraps rock.";
     }else if (playerChoice === "rock" && computerChoice === "scissors"){
-        return "Player wins! Rock smashes scissors."
+        return showResults.innerText = "Player wins! Rock smashes scissors.";
     }else if (playerChoice === "paper" && computerChoice === "rock"){
-        return "Player wins! Paper wraps rock."
+        return showResults.innerText = "Player wins! Paper wraps rock.";
     }else if (playerChoice === "paper" && computerChoice === "scissors"){
-        return "Computer wins! Scissors cut paper."
+        return showResults.innerText = "Computer wins! Scissors cut paper.";
     }else if (playerChoice === "scissors" && computerChoice === "rock"){
-        return "Computer wins! Rock smashes scissors."
+        return showResults.innerText = "Computer wins! Rock smashes scissors.";
     }else if(playerChoice === "scissors" && computerChoice === "paper"){
-        return "Player wins! Scissors cut paper."
+        return showResults.innerText = "Player wins! Scissors cut paper.";
     }else{
-        return "No weapons were chosen."
+        return showResults.innerText = "No weapons were chosen.";
     }
 };
-
-
-
 
 
 
