@@ -5,25 +5,25 @@ const showResults = document.getElementById('results');
 const updatePlayerScore = document.getElementById('playerscore');
 const updateComputerScore = document.getElementById('computerscore');
 
-const handleRock = () => playRound("rock");
-const handlePaper = () => playRound("paper");
-const handleScissors = () => playRound("scissors");
+const handleRock = () => playRound("Rock");
+const handlePaper = () => playRound("Paper");
+const handleScissors = () => playRound("Scissors");
 
 rockBtn.addEventListener("click", handleRock);
 paperBtn.addEventListener("click", handlePaper);
 scissorsBtn.addEventListener("click", handleScissors);
 
 function getComputerChoice() {
-    const choices = ['rock', 'paper', 'scissors'];
+    const choices = ['Rock', 'Paper', 'Scissors'];
     const randomIndex = Math.floor(Math.random() * choices.length);
     return choices[randomIndex];
 };
 
 function hasPlayerWonTheRound (playerChoice, computerChoice){
     return (
-    (playerChoice === "rock" && computerChoice === "scissors") ||
-    (playerChoice === "paper" && computerChoice === "rock") ||
-    (playerChoice === "scissors" && computerChoice === "paper")
+    (playerChoice === "Rock" && computerChoice === "Scissors") ||
+    (playerChoice === "Paper" && computerChoice === "Rock") ||
+    (playerChoice === "Scissors" && computerChoice === "Paper")
     );
 };
 
@@ -35,7 +35,7 @@ function playRound(playerChoice){
 
     if (hasPlayerWonTheRound(playerChoice, computerChoice)){
         playerScore++;
-        showResults.innerText = `Player wins! ${playerChoice} beats ${computerChoice}.`;
+        showResults.innerText = `Player wins! ${playerChoice} beats ${computerChoice}`;
         updatePlayerScore.innerText = "Player: " + playerScore;
         endGame();
     }else if (playerChoice === computerChoice){
