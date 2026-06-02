@@ -85,4 +85,6 @@ p{
 .count{
     padding: 24px;
     background-color:#fff;
+    border-radius:8px;
+    border:none;
 }
