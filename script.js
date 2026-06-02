@@ -5,9 +5,13 @@ const showResults = document.getElementById('results');
 const updatePlayerScore = document.getElementById('playerscore');
 const updateComputerScore = document.getElementById('computerscore');
 
-rockBtn.addEventListener("click", () => (playRound("rock")));
-paperBtn.addEventListener("click", () => (playRound("paper")));
-scissorsBtn.addEventListener("click", () => (playRound("scissors")));
+const handleRock = () => playRound("rock");
+const handlePaper = () => playRound("paper");
+const handleScissors = () => playRound("scissors");
+
+rockBtn.addEventListener("click", handleRock);
+paperBtn.addEventListener("click", handlePaper);
+scissorsBtn.addEventListener("click", handleScissors);
 
 function getComputerChoice() {
     const choices = ['rock', 'paper', 'scissors'];
@@ -20,7 +24,7 @@ let computerScore = 0;
 
 function playRound(playerChoice){
     const computerChoice = getComputerChoice();
-
+    
     if (playerChoice === computerChoice){
         showResults.innerText = "It's a draw!";
     }else if (playerChoice === "rock" && computerChoice === "paper"){
@@ -60,12 +64,16 @@ function playRound(playerChoice){
 
 function endGame(){
     if (playerScore === 3){
-        return console.log("Player won the game. Want to play again?");
+        showResults.innerText = "Game over: You win! Well done!";
+        rockBtn.removeEventListener("click", handleRock);
+        paperBtn.removeEventListener("click", handlePaper);
+        scissorsBtn.removeEventListener("click", handleScissors);
     }else if (computerScore === 3){
-        return console.log("Computer won the game. Want to play again?");
+        showResults.innerText = "Game over: Computer won! Better luck next time!";
+        rockBtn.removeEventListener("click", handleRock);
+        paperBtn.removeEventListener("click", handlePaper);
+        scissorsBtn.removeEventListener("click", handleScissors);
     }
 };
-
-
 
 // Stop game bij 3 en mogelijkheid tot opnieuw beginnen
